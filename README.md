@@ -27,12 +27,15 @@ This is dotnet core project. To be honest, this is the first time I explore the 
 
 1. [.NET Core](https://www.microsoft.com/net/core) (1.0.4+)
 
+If you are on Windows, please pick the [CLI Toolset](https://www.microsoft.com/net/core#windowscmd).
+
 ### Optional
 
 1. [Visual Studio Code](https://code.visualstudio.com/) (for viewing and editing)
 2. [Visual Studio Code C# Support](https://code.visualstudio.com/docs/languages/csharp)
 
 Note, you don't need a Mac to run this project. `.NET Core` is a cross platform framework.
+
 
 ### Installing Dependencies
 

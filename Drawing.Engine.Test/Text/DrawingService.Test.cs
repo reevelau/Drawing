@@ -73,5 +73,90 @@ namespace Drawing.Engine.Text.Test
                                 
             Assert.Equal(expected, verifyBuffer);
         }
+
+        [Fact]
+        public void DrawOnCanvasBeforeCreation()
+        {
+            var textReaderMock = new Mock<TextReader>();
+            var textOutputMock = new Mock<TextWriter>();
+            var textErrorMock = new Mock<TextWriter>();
+            var canvasPrinterMock = new Mock<ICanvasPrinter>();
+
+            textReaderMock.SetupSequence( console=> console.ReadLine() )
+                .Returns("L 1 2 3 4")
+                .Returns("Q");
+            
+            string error_message = "";
+            textErrorMock.Setup( error=> error.WriteLine(It.IsAny<string>()) )
+                .Callback((string s) => error_message = s);
+                
+
+            var service = new DrawingService(
+                textReaderMock.Object, 
+                textOutputMock.Object, 
+                textErrorMock.Object, 
+                canvasPrinterMock.Object);
+
+            service.Start();
+
+            Assert.True( error_message.Contains("Canvas is null") );
+        }
+
+        [Fact]
+        public void DrawALineOutOfCanvas()
+        {
+            var textReaderMock = new Mock<TextReader>();
+            var textOutputMock = new Mock<TextWriter>();
+            var textErrorMock = new Mock<TextWriter>();
+            var canvasPrinterMock = new Mock<ICanvasPrinter>();
+
+            textReaderMock.SetupSequence( console=> console.ReadLine() )
+                .Returns("C 2 2")
+                .Returns("L 1 2 3 4")
+                .Returns("Q");
+            
+            string error_message = "";
+            textErrorMock.Setup( error=> error.WriteLine(It.IsAny<string>()) )
+                .Callback((string s) => error_message = s);
+                
+
+            var service = new DrawingService(
+                textReaderMock.Object, 
+                textOutputMock.Object, 
+                textErrorMock.Object, 
+                canvasPrinterMock.Object);
+
+            service.Start();
+
+            Assert.True( error_message.Contains("Coordinate (2,3) is incorrect in current Canvas.") );
+        }
+
+        [Fact]
+        public void UnknownCommand()
+        {
+            var textReaderMock = new Mock<TextReader>();
+            var textOutputMock = new Mock<TextWriter>();
+            var textErrorMock = new Mock<TextWriter>();
+            var canvasPrinterMock = new Mock<ICanvasPrinter>();
+
+            textReaderMock.SetupSequence( console=> console.ReadLine() )
+                .Returns("Hello World")
+                .Returns("Q");
+            
+            string error_message = "";
+            textErrorMock.Setup( error=> error.WriteLine(It.IsAny<string>()) )
+                .Callback((string s) => error_message = s);
+                
+
+            var service = new DrawingService(
+                textReaderMock.Object, 
+                textOutputMock.Object, 
+                textErrorMock.Object, 
+                canvasPrinterMock.Object);
+
+            service.Start();
+            
+            Assert.True( error_message.Contains("Unknown Command Hello World") );
+        }
     }
 }
