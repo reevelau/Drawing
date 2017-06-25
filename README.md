@@ -131,7 +131,7 @@ It is the test project. It is configured to use [xunit](https://github.com/xunit
 
 ## Authors
 
-* **Reeve Lau** [email](mailto:reevelau@gmail.com)
+* **Reeve Lau** (email: `reevelau@gmail.com`)
 
 ## License
 
