@@ -47,7 +47,7 @@ namespace Drawing.Engine.Receiver
         {
             if(x < 0 || y < 0 || x >= width || y >= height)
             {
-                throw new IncorrectCoordiante(x,y);
+                throw new IncorrectCoordianteException(x,y);
             }
 
             PixelMap[x,y].Color = color;
@@ -57,7 +57,7 @@ namespace Drawing.Engine.Receiver
         {
             if(x < 0 || y < 0 || x >= width || y >= height)
             {
-                throw new IncorrectCoordiante(x,y);
+                throw new IncorrectCoordianteException(x,y);
             }
             return new Pixel(PixelMap[x,y]);
         }

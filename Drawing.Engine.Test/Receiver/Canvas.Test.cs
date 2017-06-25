@@ -50,7 +50,7 @@ namespace Drawing.Engine.Test.Receiver
         {
             int color = (int)('x' - '0');
             var exception = Record.Exception(() => TestingCanvas.Draw(x, y, color));
-            Assert.IsType(typeof(IncorrectCoordiante), exception);
+            Assert.IsType(typeof(IncorrectCoordianteException), exception);
         }
     }
 }
