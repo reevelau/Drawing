@@ -54,6 +54,13 @@ The result should look like the following
       https://api.nuget.org/v3/index.json
 ````
 
+## Runnig the program
+
+Once after you installed the dependencies, you can run the program by this command.
+
+````
+dotnet run -p Drawing.CLI/Drawing.CLI.csproj 
+````
 
 ## Running the tests
 
