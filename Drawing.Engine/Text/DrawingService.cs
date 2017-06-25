@@ -60,7 +60,14 @@ namespace Drawing.Engine.Text
                 string key = ar[0].ToUpper();
                 if(TextCmdHandlerDic.ContainsKey(key))
                 {
-                    TextCmdHandlerDic[key].Invoke(ar);
+                    try
+                    {
+                        TextCmdHandlerDic[key].Invoke(ar);
+                    }
+                    catch(Exception e)
+                    {
+                        OnExcuteException(e);
+                    }
                 }
                 else
                 {
@@ -185,6 +192,7 @@ namespace Drawing.Engine.Text
 
         protected override void OnExcuteException(Exception e)
         {
+            Error.WriteLine();
             Error.WriteLine("Runtime exception:");
 
             if(e is IncorrectCoordianteException)

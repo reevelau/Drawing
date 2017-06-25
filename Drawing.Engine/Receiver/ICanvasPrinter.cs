@@ -2,7 +2,7 @@ using System;
 using Drawing.Engine.Receiver;
 using System.IO;
 
-namespace Drawing.Engine.Utility
+namespace Drawing.Engine.Receiver
 {
     public interface ICanvasPrinter
     {
