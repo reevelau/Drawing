@@ -4,7 +4,6 @@ using Drawing.Engine.Receiver;
 using Drawing.Engine.Command;
 using System.IO;
 using System.Collections.Generic;
-using Drawing.Engine.Utility; 
 
 namespace Drawing.Engine.Text
 {

@@ -25,7 +25,7 @@ This is dotnet core project. To be honest, this is the first time I explore the 
 
 ### Prerequisites
 
-1. [.Net core](https://www.microsoft.com/net/core)
+1. [.Net core](https://www.microsoft.com/net/core) (1.0.4+)
 
 ### Optional
 
@@ -62,7 +62,7 @@ Once after you installed the dependencies, you can run the program by this comma
 dotnet run -p Drawing.CLI/Drawing.CLI.csproj 
 ````
 
-## Running the tests
+## Running the test
 
 This project is convered by a Unit test project. You can run the tests by this command.
 
@@ -89,6 +89,40 @@ Test Run Successful.
 Test execution time: 2.8221 Seconds
 ````
 
+## About the code
+
+The .Net core solution contains 3 projects and the structure look like this.
+
+````
+Drawing/
+├── Drawing.CLI
+├── Drawing.Engine
+├── Drawing.Engine.Test
+├── Drawing.sln
+└── README.md
+````
+
+### Drawing.CLI
+It is a thin wrapper for logic in `Drawing.Engine` project.
+
+### Drawin.Engine
+It is the main library of this solution. It contains all the logic that run the program. The project has the following structure:
+
+````
+Drawing.Engine
+├── Command
+├── Drawing.Engine.csproj
+├── Geometry
+├── Invoker
+├── Receiver
+└── Text
+````
+The program is built on [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern). All new command should add to `Command` folder. The logic that do coordinate calculation should go to `Geometry`. While the logic related to canvas are stored in `Receiver`. The `Invoker` folder has logic to control how the command is executed. Since this is a console application, we have a `Text` folder to store logic to present and process text content.
+
+### Drawing.Engine.Test
+It is the test project. It is configured to use [xunit](https://github.com/xunit/xunit) and [moq](https://github.com/moq/moq) to provide assertion checking and interface mocking.
+
+
 ## Authors
 
 * **Reeve Lau** [email](mailto:reevelau@gmail.com)
@@ -97,3 +131,10 @@ Test execution time: 2.8221 Seconds
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
+## Afterthought
+
+1. .Net core is pure console base framework. It is great to be used for server-base application.
+2. .Net core + Visual Studio Code is ok to use. 
+    - Vscode provides `intellisense` which is good. But sometimes the behavior mixes up with the keyword suggestion that used in script base language, making the suggestion a bit confusing.
+    - [#1292](https://github.com/OmniSharp/omnisharp-vscode/issues/1292) makes me unable to debug `xunit` tests.  
+3. `xunit` and `moq` can be used faultlessly which is a plus sign.

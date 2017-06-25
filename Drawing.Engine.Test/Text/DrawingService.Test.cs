@@ -6,7 +6,6 @@ using Drawing.Engine.Command;
 using Drawing.Engine.Receiver;
 using System.IO;
 using Drawing.Engine.Text;
-using Drawing.Engine.Utility;
 
 namespace Drawing.Engine.Text.Test
 {

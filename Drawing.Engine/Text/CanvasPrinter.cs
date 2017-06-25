@@ -1,7 +1,6 @@
 using System;
 using Drawing.Engine.Receiver;
 using System.IO;
-using Drawing.Engine.Utility;
 
 namespace Drawing.Engine.Text
 {
