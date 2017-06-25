@@ -25,12 +25,14 @@ This is dotnet core project. To be honest, this is the first time I explore the 
 
 ### Prerequisites
 
-1. [.Net core](https://www.microsoft.com/net/core) (1.0.4+)
+1. [.NET Core](https://www.microsoft.com/net/core) (1.0.4+)
 
 ### Optional
 
 1. [Visual Studio Code](https://code.visualstudio.com/) (for viewing and editing)
 2. [Visual Studio Code C# Support](https://code.visualstudio.com/docs/languages/csharp)
+
+Note, you don't need a Mac to run this project. `.NET Core` is a cross platform framework.
 
 ### Installing Dependencies
 
@@ -91,7 +93,7 @@ Test execution time: 2.8221 Seconds
 
 ## About the code
 
-The .Net core solution contains 3 projects and the structure look like this.
+The .NET Core solution contains 3 projects and the structure look like this.
 
 ````
 Drawing/
@@ -117,7 +119,7 @@ Drawing.Engine
 ├── Receiver
 └── Text
 ````
-The program is built on [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern). All new command should add to `Command` folder. The logic that do coordinate calculation should go to `Geometry`. While the logic related to canvas are stored in `Receiver`. The `Invoker` folder has logic to control how the command is executed. Since this is a console application, we have a `Text` folder to store logic to present and process text content.
+The program is built on [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern). All new command should be added to `Command` folder. The logic that does coordinate calculation should go to `Geometry`. While the logic related to canvas are stored in `Receiver`. The `Invoker` folder has logic to control how the command is executed. Since this is a console application, we have a `Text` folder to store logic to present and process text content.
 
 One point to note, we are using Cartesian Coordinate System to make calculation in `Drawing.Engine.Geometry` classes. The pros is that we can use a mathematical way to draw on the canvas precisely, but the cons is that it offsets from the user perspective. For example, when user specifies point [1,1], it is actually translated to be [0,0] before calculation by `Drawing.Engine.Text` classes.
 
@@ -134,8 +136,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Afterthought
 
-1. .Net core is pure console base framework. It is great to be used for server-base application.
-2. .Net core + Visual Studio Code is ok to use. 
+1. .NET Core is pure console base framework. It is great to be used for server-base application.
+2. .NET Core + Visual Studio Code is ok to use. 
     - Vscode provides `intellisense` which is good. But sometimes the behavior mixes up with the keyword suggestion that used in script base language, making the suggestion a bit confusing.
     - [#1292](https://github.com/OmniSharp/omnisharp-vscode/issues/1292) makes me unable to debug `xunit` tests.  
 3. `xunit` and `moq` can be used faultlessly which is a plus sign.
