@@ -1,11 +1,11 @@
 using System;
-using Drawing.Engine.Canvas;
+using Drawing.Engine.Receiver;
 
 namespace Drawing.Engine.Command
 {
-    interface ICanvasCommand
+    public interface ICanvasCommand
     {
-        void Execute(ICanvas canvas);
+        void Execute();
     }
 
 }

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 namespace Drawing.Engine.Geometry
 {
     /// <summary>
-    /// Line class helps to calculates all coordinates that lies on Start and End (inclusive)
+    /// Line class helps to calculates all coordinates that lies on 
+    /// a straight line defined by Start and End (inclusive).
     /// </summary>
     public class Line : IShape
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Drawing.Engine.Geometry
 {
-    interface IShape
+    public interface IShape
     {
         List<Coordinate> CalculateCoordinate();
     }
