@@ -20,7 +20,6 @@ namespace Drawing.Engine.Command
         public override void Execute()
         {
             IPixel start = Receiver.GetPixel(PointX,PointY);
-            Console.WriteLine($"startX: {start.X}, startY: {start.Y}, color: {start.Color}");
             BFSFill(start.X, start.Y, start.Color, Color);
         }
 

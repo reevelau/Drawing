@@ -1,4 +1,5 @@
 ﻿using System;
+using Drawing.Engine;
 
 namespace Drawing.CLI
 {
@@ -6,7 +7,8 @@ namespace Drawing.CLI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TextDrawingService service = new TextDrawingService(Console.In, Console.Out, Console.Error);
+            service.Start();
         }
     }
 }
