@@ -119,9 +119,10 @@ Drawing.Engine
 ````
 The program is built on [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern). All new command should add to `Command` folder. The logic that do coordinate calculation should go to `Geometry`. While the logic related to canvas are stored in `Receiver`. The `Invoker` folder has logic to control how the command is executed. Since this is a console application, we have a `Text` folder to store logic to present and process text content.
 
+One point to note, we are using Cartesian Coordinate System to make calculation in `Drawing.Engine.Geometry` classes. The pros is that we can use a mathematical way to draw on the canvas precisely, but the cons is that it offsets from the user perspective. For example, when user specifies point [1,1], it is actually translated to be [0,0] before calculation by `Drawing.Engine.Text` classes.
+
 ### Drawing.Engine.Test
 It is the test project. It is configured to use [xunit](https://github.com/xunit/xunit) and [moq](https://github.com/moq/moq) to provide assertion checking and interface mocking.
-
 
 ## Authors
 
