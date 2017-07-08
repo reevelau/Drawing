@@ -20,10 +20,10 @@ namespace Drawing.Engine.Command
         public override void Execute()
         {
             IPixel start = Receiver.GetPixel(PointX,PointY);
-            BFSFill(start.X, start.Y, start.Color, Color);
+            DFSFill(start.X, start.Y, start.Color, Color);
         }
 
-        private void BFSFill(int x, int y, int originalColor, int newcolor)
+        private void DFSFill(int x, int y, int originalColor, int newcolor)
         {
             if(x < 0 || y < 0 || x >= Receiver.Width || y >= Receiver.Height)
                 return; // done
@@ -37,10 +37,10 @@ namespace Drawing.Engine.Command
 
             Receiver.Draw(x,y,newcolor);
 
-            BFSFill( x, y-1, originalColor, newcolor); // up
-            BFSFill( x+1, y, originalColor, newcolor); // right
-            BFSFill( x, y+1, originalColor, newcolor); // down
-            BFSFill( x-1, y, originalColor, newcolor); // left
+            DFSFill( x, y-1, originalColor, newcolor); // up
+            DFSFill( x+1, y, originalColor, newcolor); // right
+            DFSFill( x, y+1, originalColor, newcolor); // down
+            DFSFill( x-1, y, originalColor, newcolor); // left
         }
     }
 }

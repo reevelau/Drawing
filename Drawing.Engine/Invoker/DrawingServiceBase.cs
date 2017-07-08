@@ -36,7 +36,6 @@ namespace Drawing.Engine.Invoker
         public void CreateCanvas(int width, int height)
         {
             Canvas = CanvasFactory.CreateCanvas(width,height);
-            History.Clear();
             OnExecuteSuccess();
         }
 
